@@ -123,8 +123,13 @@
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="r0d-Kp-5vh" secondAttribute="bottom" id="r7b-1F-JKL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Yelp" id="hZw-Uj-TY5"/>
+                    <navigationItem key="navigationItem" title="Yelp" id="hZw-Uj-TY5">
+                        <barButtonItem key="leftBarButtonItem" image="filter_white.png" id="Nzu-XX-gAU">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="Nzu-XX-gAU" id="Tdn-Sz-gzd"/>
                         <outlet property="tableView" destination="r0d-Kp-5vh" id="aZM-tP-U8f"/>
                     </connections>
                 </viewController>
@@ -155,6 +160,9 @@
             <point key="canvasLocation" x="1071" y="340"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filter_white.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

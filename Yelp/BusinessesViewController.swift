@@ -8,36 +8,55 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     var businesses: [Business]!
     
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    
+    var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self;
         tableView.delegate = self;
+        
+        /* Setup search bar */
+        let filterWidth = filterButton.width
+        searchBar = UISearchBar(frame: CGRect(x:filterWidth, y:0, width:tableView.frame.width - (filterWidth + 8), height:30))
+        searchBar.placeholder = "Search for (tacos, Dominos, etc.)"
+        searchBar.userInteractionEnabled = true
+        self.navigationItem.titleView = searchBar
+        searchBar.delegate = self;
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
-        Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
+        performDefaultSearch()
+    }
+    
+    func performDefaultSearch() {
+        Business.searchWithTerm("Restaurants", sort: .Distance, categories: [], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
-            for business in businesses {
-                println(business.name!)
-                println(business.address!)
-            }
+        }
+    }
+    
+    func performSearchWithTerm(searchTerm: String) {
+        Business.searchWithTerm(searchTerm, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            self.tableView.reloadData()
         })
-        
-//        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-//            self.businesses = businesses
-//            
-//            for business in businesses {
-//                println(business.name!)
-//                println(business.address!)
-//            }
-//        }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText.isEmpty) {
+            performDefaultSearch()
+        } else {
+            println(searchText)
+            performSearchWithTerm(searchText)
+        }
     }
 
     override func didReceiveMemoryWarning() {

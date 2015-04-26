@@ -24,16 +24,18 @@ class BusinessCell: UITableViewCell {
             bnsNameLabel.text = business.name
             
             // Set Image with a fade-in effect
-            var urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: business.imageURL!)
-            bnsImgView.setImageWithURLRequest(urlRequest, placeholderImage: nil, success: { (request:NSURLRequest!, response:NSHTTPURLResponse!, image:UIImage!) -> Void in
-                if urlRequest != request {
-                    self.bnsImgView.image = image
-                } else {
-                    UIView.transitionWithView(self.bnsImgView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            if (business.imageURL != nil) {
+                var urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: business.imageURL!)
+                bnsImgView.setImageWithURLRequest(urlRequest, placeholderImage: nil, success: { (request:NSURLRequest!, response:NSHTTPURLResponse!, image:UIImage!) -> Void in
+                    if urlRequest != request {
                         self.bnsImgView.image = image
-                        }, completion: nil)
+                    } else {
+                        UIView.transitionWithView(self.bnsImgView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                            self.bnsImgView.image = image
+                            }, completion: nil)
+                    }
+                    }) { (request:NSURLRequest!, response:NSHTTPURLResponse!, error:NSError!) -> Void in
                 }
-                }) { (request:NSURLRequest!, response:NSHTTPURLResponse!, error:NSError!) -> Void in
             }
             
             // Set other label properties
