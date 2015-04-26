@@ -10,15 +10,18 @@ import UIKit
 
 class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let numberOfSections = 4;
-
     @IBAction func onCancelButtonClicked(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    @IBAction func onFiltersFinalized(sender: AnyObject) {
     }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -36,7 +39,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 1:
             return tableView.dequeueReusableCellWithIdentifier("SortCell", forIndexPath: indexPath) as! SortCell
         case 2:
-            return tableView.dequeueReusableCellWithIdentifier("DealCell", forIndexPath: indexPath) as! DealCell
+            return tableView.dequeueReusableCellWithIdentifier("DistanceCell", forIndexPath: indexPath) as! DistanceCell
         case 3:
             return tableView.dequeueReusableCellWithIdentifier("DealCell", forIndexPath: indexPath) as! DealCell
         default:

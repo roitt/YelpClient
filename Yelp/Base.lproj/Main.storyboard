@@ -227,6 +227,40 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DistanceCell" rowHeight="81" id="Ees-dK-n0b" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ees-dK-n0b" id="ZhM-98-p0u">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3d8-Gi-wxO">
+                                                    <rect key="frame" x="15" y="16" width="240" height="50"/>
+                                                    <color key="minimumTrackTintColor" red="0.70527541039999997" green="0.045990182560000002" blue="0.1230576697" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="onSliderValueChanged:" destination="Ees-dK-n0b" eventType="valueChanged" id="VcP-Cb-Hcl"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdy-d1-UVo">
+                                                    <rect key="frame" x="268" y="32" width="36" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qdy-d1-UVo" firstAttribute="centerY" secondItem="3d8-Gi-wxO" secondAttribute="centerY" id="7Nv-ZN-3YE"/>
+                                                <constraint firstItem="qdy-d1-UVo" firstAttribute="leading" secondItem="3d8-Gi-wxO" secondAttribute="trailing" constant="15" id="8j8-AT-n51"/>
+                                                <constraint firstAttribute="bottom" secondItem="3d8-Gi-wxO" secondAttribute="bottom" constant="15" id="CRt-QP-od0"/>
+                                                <constraint firstItem="3d8-Gi-wxO" firstAttribute="top" secondItem="ZhM-98-p0u" secondAttribute="top" constant="16" id="OTf-Yv-hl7"/>
+                                                <constraint firstAttribute="trailing" secondItem="qdy-d1-UVo" secondAttribute="trailing" constant="16" id="T39-e3-kM7"/>
+                                                <constraint firstItem="3d8-Gi-wxO" firstAttribute="leading" secondItem="ZhM-98-p0u" secondAttribute="leading" constant="17" id="VmW-vx-lRE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceLabel" destination="qdy-d1-UVo" id="Frv-vk-1UY"/>
+                                            <outlet property="distanceSlider" destination="3d8-Gi-wxO" id="1xT-qR-Znt"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -247,6 +281,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="done_white_20.png" id="gkW-gJ-gpE">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onFiltersFinalized:" destination="vRi-O1-esF" id="MKK-52-v3M"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
