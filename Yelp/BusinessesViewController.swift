@@ -9,7 +9,7 @@
 import UIKit
 
 class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
+    let defaultRadius: Int = 10000
     var businesses: [Business]!
     
     @IBOutlet weak var filterButton: UIBarButtonItem!
@@ -37,7 +37,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func performDefaultSearch() {
-        Business.searchWithTerm("Restaurants", sort: .Distance, categories: [], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
+        Business.searchWithTerm("Restaurants", sort: .Distance, categories: [], radius: defaultRadius, deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
         }
