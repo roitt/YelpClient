@@ -82,7 +82,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         println("Hit")
         var ctgrs = filters["categories"] as? [String]
         var rds = filters["radius"] as? Int
-        Business.searchWithTerm("Restaurants", sort: nil, categories: ctgrs, radius: rds, deals: nil) { (businesses: [Business]!, error: NSError!) -> Void in
+        var dls = filters["deals"] as? Bool
+        Business.searchWithTerm("Restaurants", sort: nil, categories: ctgrs, radius: rds, deals: dls) { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
         }

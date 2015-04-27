@@ -13,10 +13,13 @@ import UIKit
     optional func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String: AnyObject])
 }
 
-class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoriesCellDelegate, DistanceCellDelegate {
+class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoriesCellDelegate, DistanceCellDelegate, DealCellDelegate {
+    
+    var filters = [String: AnyObject]()
     
     let numberOfSections = 4;
     var radius: Double = 10000
+    var deals: Bool = false
     
     var categories: [[String: String]]!
     
@@ -49,13 +52,14 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let distanceCell = tableView.dequeueReusableCellWithIdentifier("DistanceCell", forIndexPath: indexPath) as! DistanceCell
             
             /* Maintain distance value */
-            println("Radius value \(radius / 20000)")
             distanceCell.distanceSlider.value = Float(radius / 20000)
             return distanceCell
         case 1:
             return tableView.dequeueReusableCellWithIdentifier("SortCell", forIndexPath: indexPath) as! SortCell
         case 2:
-            return tableView.dequeueReusableCellWithIdentifier("DealCell", forIndexPath: indexPath) as! DealCell
+            let dealCell = tableView.dequeueReusableCellWithIdentifier("DealCell", forIndexPath: indexPath) as! DealCell
+            dealCell.dealSwitch.on = deals
+            return dealCell
         case 3:
             let categoriesCell = tableView.dequeueReusableCellWithIdentifier("CategoriesCell", forIndexPath: indexPath) as! CategoriesCell
             categoriesCell.delegate = self
@@ -108,8 +112,6 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func onFiltersFinalized(sender: AnyObject) {
         
-        var filters = [String: AnyObject]()
-        
         var selectedCategories = [String]()
         for (row, selected) in categoriesSwitchStates {
             if selected {
@@ -122,6 +124,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         filters["radius"] = radius
+        filters["deals"] = deals
         
         delegate?.filtersViewController?(self, didUpdateFilters: filters)
         
@@ -135,6 +138,10 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func distanceCell(distanceCell: DistanceCell, didDistanceChange value: Double) {
         radius = value
+    }
+    
+    func dealCell(dealCell: DealCell, didValueChange value: Bool) {
+        deals = value
     }
 
 

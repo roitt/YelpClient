@@ -22,7 +22,7 @@ class DistanceCell: UITableViewCell {
     @IBAction func onSliderValueChanged(sender: AnyObject) {
         var radiusInMetres = round(distanceSlider.value * 20000)
         var radiusInMiles = round(radiusInMetres * 0.000621371)
-        distanceLabel.text = "\(radiusInMiles)  mi"
+        distanceLabel.text = "\(radiusInMiles)  mi "
         delegate?.distanceCell?(self, didDistanceChange: Double(radiusInMetres))
     }
     
@@ -31,6 +31,11 @@ class DistanceCell: UITableViewCell {
         var defaultDistance = round(distanceSlider.value * 20000 * 0.000621371)
         // Initialization code
         distanceLabel.text = "\(defaultDistance) mi"
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

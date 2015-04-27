@@ -193,6 +193,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z8A-VX-Zav">
                                                     <rect key="frame" x="257" y="4" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onSwitchValueChanged:" destination="syJ-4z-6B8" eventType="valueChanged" id="cze-dB-eot"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -200,6 +203,9 @@
                                                 <constraint firstItem="z8A-VX-Zav" firstAttribute="bottom" secondItem="RLd-vU-WHH" secondAttribute="bottomMargin" id="mxr-cB-zWG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dealSwitch" destination="z8A-VX-Zav" id="3Xv-fJ-KYf"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortCell" id="CGJ-5K-Euw" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
