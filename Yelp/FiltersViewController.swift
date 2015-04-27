@@ -16,7 +16,7 @@ import UIKit
 class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoriesCellDelegate, DistanceCellDelegate {
     
     let numberOfSections = 4;
-    var radius: Int = 10000
+    var radius: Double = 10000
     
     var categories: [[String: String]]!
     
@@ -49,6 +49,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let distanceCell = tableView.dequeueReusableCellWithIdentifier("DistanceCell", forIndexPath: indexPath) as! DistanceCell
             
             /* Maintain distance value */
+            println("Radius value \(radius / 20000)")
             distanceCell.distanceSlider.value = Float(radius / 20000)
             return distanceCell
         case 1:
@@ -132,7 +133,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         categoriesSwitchStates[indexPath.row] = value
     }
     
-    func distanceCell(distanceCell: DistanceCell, didDistanceChange value: Int) {
+    func distanceCell(distanceCell: DistanceCell, didDistanceChange value: Double) {
         radius = value
     }
 

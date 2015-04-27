@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol DistanceCellDelegate {
-    optional func distanceCell(distanceCell: DistanceCell, didDistanceChange value: Int)
+    optional func distanceCell(distanceCell: DistanceCell, didDistanceChange value: Double)
 }
 
 class DistanceCell: UITableViewCell {
@@ -23,7 +23,7 @@ class DistanceCell: UITableViewCell {
         var radiusInMetres = round(distanceSlider.value * 20000)
         var radiusInMiles = round(radiusInMetres * 0.000621371)
         distanceLabel.text = "\(radiusInMiles)  mi"
-        delegate?.distanceCell?(self, didDistanceChange: Int(radiusInMetres))
+        delegate?.distanceCell?(self, didDistanceChange: Double(radiusInMetres))
     }
     
     override func awakeFromNib() {
