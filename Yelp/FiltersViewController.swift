@@ -102,12 +102,10 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     /* Navigation wiring to Main view controller */
     @IBAction func onCancelButtonClicked(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func onFiltersFinalized(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
         
         var filters = [String: AnyObject]()
         
@@ -125,6 +123,8 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         filters["radius"] = radius
         
         delegate?.filtersViewController?(self, didUpdateFilters: filters)
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func categoriesCell(categoriesCell: CategoriesCell, didChangeValue value: Bool) {
