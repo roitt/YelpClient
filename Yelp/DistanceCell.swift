@@ -8,14 +8,23 @@
 
 import UIKit
 
+@objc protocol DistanceCellDelegate {
+    optional func distanceCell(distanceCell: DistanceCell, didDistanceChange value: Int)
+}
+
 class DistanceCell: UITableViewCell {
 
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceLabel: UILabel!
+    
+    weak var delegate: DistanceCellDelegate?
+    
     @IBAction func onSliderValueChanged(sender: AnyObject) {
         var radiusInMetres = round(distanceSlider.value * 20000)
         var radiusInMiles = round(radiusInMetres * 0.000621371)
-        distanceLabel.text = "\(radiusInMiles)  mi"    }
+        distanceLabel.text = "\(radiusInMiles)  mi"
+        delegate?.distanceCell?(self, didDistanceChange: Int(radiusInMetres))
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

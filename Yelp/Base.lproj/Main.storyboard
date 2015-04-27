@@ -207,13 +207,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CGJ-5K-Euw" id="9rX-Ty-r3q">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNM-pZ-grh">
-                                                    <rect key="frame" x="15" y="-59" width="289" height="162"/>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <accessibility key="accessibilityConfiguration" hint="Choose one"/>
-                                                </pickerView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GZ-pn-PNm">
+                                                    <rect key="frame" x="14" y="11" width="88" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.37099510730000002" green="0.37099510730000002" blue="0.37099510730000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sortLabel" destination="0GZ-pn-PNm" id="YRt-Qz-bBz"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoriesCell" id="q0y-cn-wfn" customClass="CategoriesCell" customModule="Yelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -221,11 +225,30 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q0y-cn-wfn" id="o2k-mP-6Gr">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipe-hE-rca">
-                                                    <rect key="frame" x="14" y="-59" width="290" height="162"/>
-                                                </pickerView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-iY-jZb">
+                                                    <rect key="frame" x="14" y="11" width="73" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRH-0b-4Qg">
+                                                    <rect key="frame" x="257" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onSwitchValueChanged:" destination="q0y-cn-wfn" eventType="valueChanged" id="74K-dM-n0D"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KCT-iY-jZb" firstAttribute="centerY" secondItem="o2k-mP-6Gr" secondAttribute="centerY" id="PiN-el-3xe"/>
+                                                <constraint firstItem="KCT-iY-jZb" firstAttribute="centerY" secondItem="SRH-0b-4Qg" secondAttribute="centerY" id="Sj7-0b-KuG"/>
+                                                <constraint firstItem="KCT-iY-jZb" firstAttribute="leading" secondItem="o2k-mP-6Gr" secondAttribute="leading" constant="14" id="TMT-r2-Wl3"/>
+                                                <constraint firstAttribute="trailing" secondItem="SRH-0b-4Qg" secondAttribute="trailing" constant="14" id="fce-bZ-rdg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoriesSwitch" destination="SRH-0b-4Qg" id="mME-ta-RFT"/>
+                                            <outlet property="categoryLabel" destination="KCT-iY-jZb" id="Ka7-ba-St8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DistanceCell" rowHeight="81" id="Ees-dK-n0b" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -292,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtO-pm-W6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055" y="340"/>
+            <point key="canvasLocation" x="2072" y="340"/>
         </scene>
     </scenes>
     <resources>

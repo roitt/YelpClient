@@ -9,7 +9,10 @@
 import UIKit
 
 class SortCell: UITableViewCell {
-
+    
+    let sortTerms = ["Best Matched", "Distance", "Highest Rated"]
+    
+    @IBOutlet weak var sortLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

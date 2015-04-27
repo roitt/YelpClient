@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate {
     let defaultRadius: Int = 10000
     var businesses: [Business]!
     
@@ -77,15 +77,19 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             return 0
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String : AnyObject]) {
+        println("Hit")
+        var ctgrs = filters["categories"] as? [String]
+        var rds = filters["radius"] as? Int
+        Business.searchWithTerm("Restaurants", sort: nil, categories: ctgrs, radius: rds, deals: nil) { (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            self.tableView.reloadData()
+        }
     }
-    */
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var filtersViewController = segue.destinationViewController as! FiltersViewController
+        filtersViewController.delegate = self
+    }
 }
