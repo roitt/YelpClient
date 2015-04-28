@@ -21,6 +21,10 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     var radius: Double = 10000
     var deals: Bool = false
     
+    /* Sort by expansion variables */
+    var isExpanded: Bool = false
+    var currentSortSelection = 0;
+    
     var categories: [[String: String]]!
     
     var categoriesSwitchStates =  [Int:Bool]()
@@ -55,7 +59,39 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             distanceCell.distanceSlider.value = Float(radius / 20000)
             return distanceCell
         case 1:
-            return tableView.dequeueReusableCellWithIdentifier("SortCell", forIndexPath: indexPath) as! SortCell
+            if isExpanded {
+                let checkableCell = tableView.dequeueReusableCellWithIdentifier("CheckableCell", forIndexPath: indexPath) as! CheckableCell
+                
+                var imageUC : UIImage = UIImage(named:"unchecked")!
+                var imageC : UIImage = UIImage(named:"checked")!
+                if indexPath.row == currentSortSelection {
+                    checkableCell.checkableImgView.image = imageC
+                } else {
+                    checkableCell.checkableImgView.image = imageUC
+                }
+                
+                if indexPath.row == 0 {
+                    checkableCell.sortLabel.text = "Best Match"
+                } else if indexPath.row == 1 {
+                    checkableCell.sortLabel.text = "Distance"
+                } else {
+                    checkableCell.sortLabel.text = "Highest Rated"
+                }
+                
+                return checkableCell
+            } else {
+                let sortCell = tableView.dequeueReusableCellWithIdentifier("SortCell", forIndexPath: indexPath) as! SortCell
+                
+                if currentSortSelection == 0 {
+                    sortCell.sortLabel.text = "Best Match"
+                } else if currentSortSelection == 1 {
+                    sortCell.sortLabel.text = "Distance"
+                } else {
+                    sortCell.sortLabel.text = "Highest Rated"
+                }
+                
+                return sortCell
+            }
         case 2:
             let dealCell = tableView.dequeueReusableCellWithIdentifier("DealCell", forIndexPath: indexPath) as! DealCell
             dealCell.dealSwitch.on = deals
@@ -80,12 +116,26 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.section == 1 {
+            if isExpanded {
+                isExpanded = false
+                currentSortSelection = indexPath.row
+            } else if !isExpanded && indexPath.row == 0 {
+                isExpanded = true
+            }
+            tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 3) {
             return 5;
         }
+        
+        if isExpanded && section == 1 {
+            return 3;
+        }
+        
         return 1;
     }
     

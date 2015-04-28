@@ -79,7 +79,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String : AnyObject]) {
-        println("Hit")
         var ctgrs = filters["categories"] as? [String]
         var rds = filters["radius"] as? Int
         var dls = filters["deals"] as? Bool

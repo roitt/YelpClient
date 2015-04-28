@@ -1,16 +1,18 @@
 //
-//  SortCell.swift
+//  CheckableCell.swift
 //  Yelp
 //
-//  Created by Rohit Bhoompally on 4/25/15.
+//  Created by Rohit Bhoompally on 4/27/15.
 //  Copyright (c) 2015 Timothy Lee. All rights reserved.
 //
 
 import UIKit
 
-class SortCell: UITableViewCell {
-        
+class CheckableCell: UITableViewCell {
+
     @IBOutlet weak var sortLabel: UILabel!
+    @IBOutlet weak var checkableImgView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +23,4 @@ class SortCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

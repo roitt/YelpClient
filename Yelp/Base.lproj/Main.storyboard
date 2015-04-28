@@ -213,13 +213,28 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CGJ-5K-Euw" id="9rX-Ty-r3q">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GZ-pn-PNm">
-                                                    <rect key="frame" x="14" y="11" width="88" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GZ-pn-PNm">
+                                                    <rect key="frame" x="14" y="11" width="254" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.37099510730000002" green="0.37099510730000002" blue="0.37099510730000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="aYL-X2-mLT">
+                                                    <rect key="frame" x="276" y="10" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="E6B-mN-Ya5"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0GZ-pn-PNm" firstAttribute="top" secondItem="9rX-Ty-r3q" secondAttribute="topMargin" constant="3" id="31v-GC-Htf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aYL-X2-mLT" secondAttribute="bottom" id="6QP-EB-Umt"/>
+                                                <constraint firstItem="aYL-X2-mLT" firstAttribute="leading" secondItem="0GZ-pn-PNm" secondAttribute="trailing" constant="8" symbolic="YES" id="AVu-bW-21H"/>
+                                                <constraint firstItem="aYL-X2-mLT" firstAttribute="top" secondItem="9rX-Ty-r3q" secondAttribute="topMargin" constant="2" id="Fm4-6g-K7i"/>
+                                                <constraint firstItem="0GZ-pn-PNm" firstAttribute="leading" secondItem="9rX-Ty-r3q" secondAttribute="leading" constant="14" id="I45-Id-529"/>
+                                                <constraint firstItem="0GZ-pn-PNm" firstAttribute="centerY" secondItem="9rX-Ty-r3q" secondAttribute="centerY" id="SKG-Vn-eDe"/>
+                                                <constraint firstAttribute="trailing" secondItem="aYL-X2-mLT" secondAttribute="trailing" constant="19" id="ttf-A7-EIj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="sortLabel" destination="0GZ-pn-PNm" id="YRt-Qz-bBz"/>
@@ -231,10 +246,10 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q0y-cn-wfn" id="o2k-mP-6Gr">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-iY-jZb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="American" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-iY-jZb">
                                                     <rect key="frame" x="14" y="11" width="73" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.37099510730000002" green="0.37099510730000002" blue="0.37099510730000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRH-0b-4Qg">
@@ -290,6 +305,38 @@
                                             <outlet property="distanceSlider" destination="3d8-Gi-wxO" id="1xT-qR-Znt"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckableCell" id="0o8-fq-Y54" customClass="CheckableCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0o8-fq-Y54" id="hIR-FW-Oxi">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Best Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVX-s2-977">
+                                                    <rect key="frame" x="17" y="11" width="88" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.37099510730000002" green="0.37099510730000002" blue="0.37099510730000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nh4-4Z-BTb">
+                                                    <rect key="frame" x="273" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="hd3-HK-AQL"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bVX-s2-977" firstAttribute="leading" secondItem="hIR-FW-Oxi" secondAttribute="leadingMargin" constant="9" id="1zv-4v-CaK"/>
+                                                <constraint firstAttribute="trailing" secondItem="nh4-4Z-BTb" secondAttribute="trailing" constant="17" id="Q90-pf-E0A"/>
+                                                <constraint firstItem="bVX-s2-977" firstAttribute="centerY" secondItem="hIR-FW-Oxi" secondAttribute="centerY" id="QV0-QX-bMf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="nh4-4Z-BTb" secondAttribute="bottom" constant="-2" id="Vjh-gv-ii1"/>
+                                                <constraint firstItem="nh4-4Z-BTb" firstAttribute="top" secondItem="hIR-FW-Oxi" secondAttribute="topMargin" constant="-1" id="krX-vG-g4l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkableImgView" destination="nh4-4Z-BTb" id="yc9-cy-L3t"/>
+                                            <outlet property="sortLabel" destination="bVX-s2-977" id="XF5-8h-Dtw"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -327,6 +374,7 @@
     <resources>
         <image name="cancel_white_20.png" width="20" height="20"/>
         <image name="done_white_20.png" width="25" height="25"/>
+        <image name="down_arrow.png" width="30" height="30"/>
         <image name="filter_white.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

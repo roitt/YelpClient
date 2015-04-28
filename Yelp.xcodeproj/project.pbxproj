@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		03D1A025B413415787AD3DF3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C56EF0CE844A4EE5819C72AF /* libPods.a */; };
+		1B0BCCAC1AEF1621008A0182 /* CheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BCCAB1AEF1621008A0182 /* CheckableCell.swift */; };
+		1B0BCCAE1AEF1893008A0182 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BCCAD1AEF1893008A0182 /* unchecked.png */; };
+		1B0BCCB01AEF18A4008A0182 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BCCAF1AEF18A4008A0182 /* checked.png */; };
+		1B0BCCB21AEF24AF008A0182 /* down_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BCCB11AEF24AF008A0182 /* down_arrow.png */; };
 		1B2F5B0D1AEC5EFE006E5BB2 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F5B0C1AEC5EFE006E5BB2 /* BusinessCell.swift */; };
 		1B2F5B131AEC7CA3006E5BB2 /* filter_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2F5B121AEC7CA3006E5BB2 /* filter_white.png */; };
 		1B2F5B171AEC96E3006E5BB2 /* filter_white_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2F5B161AEC96E3006E5BB2 /* filter_white_40.png */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0BCCAB1AEF1621008A0182 /* CheckableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckableCell.swift; sourceTree = "<group>"; };
+		1B0BCCAD1AEF1893008A0182 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		1B0BCCAF1AEF18A4008A0182 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		1B0BCCB11AEF24AF008A0182 /* down_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_arrow.png; sourceTree = "<group>"; };
 		1B2F5B0C1AEC5EFE006E5BB2 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		1B2F5B121AEC7CA3006E5BB2 /* filter_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_white.png; sourceTree = "<group>"; };
 		1B2F5B161AEC96E3006E5BB2 /* filter_white_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_white_40.png; sourceTree = "<group>"; };
@@ -94,6 +102,7 @@
 				1B2F5B2F1AECC057006E5BB2 /* SortCell.swift */,
 				1B2F5B311AECC555006E5BB2 /* CategoriesCell.swift */,
 				1B2F5B331AECCB39006E5BB2 /* DistanceCell.swift */,
+				1B0BCCAB1AEF1621008A0182 /* CheckableCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -101,6 +110,9 @@
 		1B2F5B0F1AEC7C3F006E5BB2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B0BCCB11AEF24AF008A0182 /* down_arrow.png */,
+				1B0BCCAF1AEF18A4008A0182 /* checked.png */,
+				1B0BCCAD1AEF1893008A0182 /* unchecked.png */,
 				1B2F5B261AECA641006E5BB2 /* done_white_20.png */,
 				1B2F5B1C1AEC9D1A006E5BB2 /* cancel_white_20.png */,
 				1B2F5B161AEC96E3006E5BB2 /* filter_white_40.png */,
@@ -298,11 +310,14 @@
 			files = (
 				1B9C57851AEE035800FB8EB3 /* Main.storyboard in Resources */,
 				1B2F5B1D1AEC9D1A006E5BB2 /* cancel_white_20.png in Resources */,
+				1B0BCCAE1AEF1893008A0182 /* unchecked.png in Resources */,
 				1B2F5B131AEC7CA3006E5BB2 /* filter_white.png in Resources */,
 				1B2F5B171AEC96E3006E5BB2 /* filter_white_40.png in Resources */,
 				1B2F5B271AECA641006E5BB2 /* done_white_20.png in Resources */,
+				1B0BCCB01AEF18A4008A0182 /* checked.png in Resources */,
 				222D8A6519CCF9F900D2DB53 /* LaunchScreen.xib in Resources */,
 				222D8A6219CCF9F900D2DB53 /* Images.xcassets in Resources */,
+				1B0BCCB21AEF24AF008A0182 /* down_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +372,7 @@
 				1B2F5B321AECC555006E5BB2 /* CategoriesCell.swift in Sources */,
 				1B2F5B0D1AEC5EFE006E5BB2 /* BusinessCell.swift in Sources */,
 				22AAAA9C1AEA1EC300A544AF /* BusinessesViewController.swift in Sources */,
+				1B0BCCAC1AEF1621008A0182 /* CheckableCell.swift in Sources */,
 				22AAAA991AEA0A9700A544AF /* Business.swift in Sources */,
 				1B2F5B301AECC057006E5BB2 /* SortCell.swift in Sources */,
 				222D8A7D19CCFAE000D2DB53 /* YelpClient.swift in Sources */,
