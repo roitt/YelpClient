@@ -175,6 +175,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         filters["radius"] = radius
         filters["deals"] = deals
+        filters["sort"] = currentSortSelection
         
         delegate?.filtersViewController?(self, didUpdateFilters: filters)
         

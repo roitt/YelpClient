@@ -82,7 +82,15 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         var ctgrs = filters["categories"] as? [String]
         var rds = filters["radius"] as? Int
         var dls = filters["deals"] as? Bool
-        Business.searchWithTerm("Restaurants", sort: nil, categories: ctgrs, radius: rds, deals: dls) { (businesses: [Business]!, error: NSError!) -> Void in
+        var srt = filters["sort"] as? Int
+        var sortMode = YelpSortMode.BestMatched
+        if srt == 1 {
+            sortMode = YelpSortMode.Distance
+        } else if srt == 2 {
+            sortMode = YelpSortMode.HighestRated
+        }
+
+        Business.searchWithTerm("Restaurants", sort: sortMode, categories: ctgrs, radius: rds, deals: dls) { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
         }
