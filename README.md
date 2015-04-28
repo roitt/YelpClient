@@ -25,13 +25,13 @@ Time spent: `15 hours`
    - [ ] Infinite scroll for restaurant results
    - [ ] Implement map view of restaurant results
 - [ ] Filter page
-   - [ ] Radius filter should expand as in the real Yelp app
+   - [x] Radius filter should expand as in the real Yelp app (did the same for sort cell)
    - [ ] Categories should show a subset of the full list with a "See All" row to expand. Category list is here: http://www.yelp.com/developers/documentation/category_list (Links to an external site.)
 - [ ] Implement the restaurant detail page.
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](yelp.gif)
 
 #### Icons
 1. Filter icon: Created by Hysen Drogu from Noun Project.
@@ -39,3 +39,4 @@ Time spent: `15 hours`
 3. Checkmark icon: Created by Martha Ormiston from Noun Project.
 4. Checked icon: Created by Safwan Erooth from Noun Project.
 5. Unchecked icon: Created by Arthur Shlain from Noun Project.
+6. Down Arrow icon: Created by Tom Walsh from Noun Project.
