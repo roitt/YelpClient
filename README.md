@@ -31,7 +31,7 @@ Time spent: `15 hours`
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](yelp.gif)
 
 #### Icons
 1. Filter icon: Created by Hysen Drogu from Noun Project.
